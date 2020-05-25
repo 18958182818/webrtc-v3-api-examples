@@ -1,5 +1,9 @@
 This repository demonstrates all the use cases we want to support with the Pion WebRTC `/v3` Media API.
 
+[MediaAPI](https://github.com/pion/webrtc/wiki/MediaAPI)
+
+[PlanningV3](https://github.com/pion/webrtc/wiki/PlanningV3)
+
 The root of the repository contains the stubs that demonstrate the new API, and each sub-directory demonstrates
 actual usage of the API. This API is complete when we can demonstrate working usage of the following.
 
