@@ -1,28 +1,38 @@
 package webrtc
 
-type RTPCodecType int
+type RtpCodecType int
 
 const (
-	RTPCodecTypeAudio RTPCodecType = iota + 1
-	RTPCodecTypeVideo
+	RtpCodecTypeAudio RtpCodecType = iota + 1
+	RtpCodecTypeVideo
 )
 
 type PeerConnection struct{}
 type Configuration struct{}
-type RTPTransceiver struct{}
-type RTPReceiver struct{}
+type RtpTransceiver struct{}
+type RtpReceiver struct{}
+type RtpSender struct{}
 type Packet struct{}
 
 func (api *API) NewPeerConnection(c Configuration) (*PeerConnection, error) {
 	return nil, nil
 }
 
-func (pc *PeerConnection) AddTransceiverFromKind(r RTPCodecType) (*RTPTransceiver, error) {
+// PeerConnection APIs
+func (pc *PeerConnection) AddTransceiverFromKind(r RtpCodecType) (*RtpTransceiver, error) {
 	return nil, nil
 }
 
-func (pc *PeerConnection) OnTrack(cb func(*MediaStreamTrack, *RTPReceiver)) {}
-
-func (r *RTPReceiver) ReadRTP() ([]byte, error) {
+func (pc *PeerConnection) AddTrack(t *MediaStreamTrack) (*RtpSender, error) {
 	return nil, nil
 }
+
+func (pc *PeerConnection) OnTrack(cb func(*MediaStreamTrack, *RtpReceiver, []*MediaStream)) {}
+
+// RtpReceiver APIs
+func (r *RtpReceiver) ReadRTP() ([]byte, error) {
+	return nil, nil
+}
+
+// RtpSender APIs
+func (r *RtpSender) SetCodec(RtpCodecCapability) error { return nil }

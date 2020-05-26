@@ -22,11 +22,11 @@ func main() {
 		panic(err)
 	}
 
-	if _, err = peerConnection.AddTransceiverFromKind(webrtc.RTPCodecTypeVideo); err != nil {
+	if _, err = peerConnection.AddTransceiverFromKind(webrtc.RtpCodecTypeVideo); err != nil {
 		panic(err)
 	}
 
-	peerConnection.OnTrack(func(t *webrtc.MediaStreamTrack, r *webrtc.RTPReceiver) {
+	peerConnection.OnTrack(func(t *webrtc.MediaStreamTrack, r *webrtc.RtpReceiver, s []*webrtc.MediaStream) {
 		for {
 			rtp, err := r.ReadRTP()
 			if err != nil {
@@ -37,4 +37,6 @@ func main() {
 			fmt.Println(rtp)
 		}
 	})
+
+	// Signaling
 }
