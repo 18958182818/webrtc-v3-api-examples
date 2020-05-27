@@ -23,16 +23,12 @@ func (pc *PeerConnection) AddTransceiverFromKind(r RtpCodecType) (*RtpTransceive
 	return nil, nil
 }
 
-func (pc *PeerConnection) AddTrack(t *MediaStreamTrack) (*RtpSender, error) {
-	return nil, nil
-}
-
 func (pc *PeerConnection) OnTrack(cb func(*MediaStreamTrack, *RtpReceiver, []*MediaStream)) {}
+
+// RtpTransceiver APIs
+func (t *RtpTransceiver) setCodecPreferences([]RtpCodecCapability) error { return nil }
 
 // RtpReceiver APIs
 func (r *RtpReceiver) ReadRTP() ([]byte, error) {
 	return nil, nil
 }
-
-// RtpSender APIs
-func (r *RtpSender) SetCodec(RtpCodecCapability) error { return nil }

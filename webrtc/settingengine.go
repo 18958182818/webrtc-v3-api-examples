@@ -15,3 +15,10 @@ type RtpCodecCapability struct {
 type SettingEngine struct {
 	Codecs []RtpCodecCapability
 }
+
+func RtpCodecCapabilityVP8() RtpCodecCapability {
+	return RtpCodecCapability{
+		Name:      "VP8",
+		ClockRate: 90000,
+	}
+}
